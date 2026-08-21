@@ -1,0 +1,22 @@
+# Model files
+*.safetensors
+*.bin
+*.pt
+*.onnx
+tokenizer.json
+special_tokens_map.json
+config.json
+generation_config.json
+model.safetensors.index.json
+chat_template.jinja
+notebook.ipynb
+.gitattributes
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Kaggle/kernel artifacts
+/kaggle/
+*.log

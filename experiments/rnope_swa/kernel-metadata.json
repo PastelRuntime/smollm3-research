@@ -1,0 +1,13 @@
+{
+  "id": "haylee00/smollm3-rnope-swa-niah-eval",
+  "title": "SmolLM3 RNoPE-SWA NIAH eval",
+  "code_file": "smollm3-rnope-swa-niah.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "competition_sources": [],
+  "dataset_sources": [],
+  "kernel_sources": []
+}

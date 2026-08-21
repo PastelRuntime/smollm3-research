@@ -1,0 +1,14 @@
+{
+  "id": "haylee00/smollm3-rnope-swa-phaseb",
+  "title": "SmolLM3 RNoPE-SWA Phase B",
+  "code_file": "smollm3-rnope-swa-phaseb.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": []
+}

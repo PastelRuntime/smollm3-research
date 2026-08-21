@@ -1,0 +1,135 @@
+[{"stream_name":"stdout","time":11.827797246,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.0/44.0 kB 1.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":12.543329495,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 97.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":12.578816827,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 33.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":37.931825286,"data":"torch 2.10.0+cu128 | cuda 12.8 | transformers 4.57.6\n"}
+,{"stream_name":"stdout","time":38.228981115,"data":"GPU: Tesla T4 | capability sm_75\n"}
+,{"stream_name":"stdout","time":38.42412777,"data":"GPU memory at start: 14.46 GiB free of 14.56 GiB\n"}
+,{"stream_name":"stdout","time":38.453075236,"data":"Fri Aug 21 05:07:36 2026       \n"}
+,{"stream_name":"stdout","time":38.453129028,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":38.453153551,"data":"| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":38.453159492,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":38.453165057,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":38.453170565,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":38.4531753,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":38.453180283,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":38.482636671,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":38.482680711,"data":"| N/A   40C    P0             26W /   70W |     105MiB /  15360MiB |      3%      Default |\n"}
+,{"stream_name":"stdout","time":38.482695604,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":38.482700656,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":38.482706193,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":38.482711723,"data":"| N/A   42C    P8              9W /   70W |       3MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":38.482717178,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":38.482722736,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":38.483092648,"data":"\n"}
+,{"stream_name":"stdout","time":38.483104398,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":38.483109151,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":38.483113863,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":38.483134796,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":38.483138889,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":38.484649869,"data":"|    0   N/A  N/A               7      C   python3                                 102MiB |\n"}
+,{"stream_name":"stdout","time":38.484663143,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":41.375627009,"data":"=== loading baseline (fp16, sdpa) ===\n"}
+,{"stream_name":"stderr","time":89.642459875,"data":"\rFetching 2 files:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rFetching 2 files:  50%|█████     | 1/2 [00:30\u003c00:30, 30.40s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:30\u003c00:00, 15.20s/it]\n"}
+,{"stream_name":"stderr","time":93.748236447,"data":"\rLoading checkpoint shards:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rLoading checkpoint shards:  50%|█████     | 1/2 [00:03\u003c00:03,  3.21s/it]\rLoading checkpoint shards: 100%|██████████| 2/2 [00:04\u003c00:00,  1.81s/it]\rLoading checkpoint shards: 100%|██████████| 2/2 [00:04\u003c00:00,  2.02s/it]\n"}
+,{"stream_name":"stdout","time":96.115800646,"data":"baseline: weights loaded as torch.float16\n"}
+,{"stream_name":"stdout","time":97.892087795,"data":"baseline: 3,075,098,624 params | weights dtype torch.float16 | device cuda:0\n"}
+,{"stream_name":"stdout","time":97.892123828,"data":"baseline: layer_types sliding=0 full=36 | use_sliding_window=False\n"}
+,{"stream_name":"stdout","time":97.892546002,"data":"[mem baseline after load] free 8.72 GiB | allocated 5.73 GiB | peak 5.73 GiB\n"}
+,{"stream_name":"stdout","time":97.929777839,"data":"baseline len 8192 depth 0.1: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":104.538670534,"data":"{\"config\": \"baseline\", \"length\": 8192, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 6.61, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":104.920603015,"data":"baseline len 8192 depth 0.3: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":110.843808187,"data":"{\"config\": \"baseline\", \"length\": 8192, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 5.92, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":111.255458421,"data":"baseline len 8192 depth 0.5: input_ids (1, 7575)\n"}
+,{"stream_name":"stdout","time":117.222828601,"data":"{\"config\": \"baseline\", \"length\": 8192, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 5.97, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":117.60638184,"data":"baseline len 8192 depth 0.7: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":123.584348417,"data":"{\"config\": \"baseline\", \"length\": 8192, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 5.98, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":123.987387814,"data":"baseline len 8192 depth 0.9: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":129.96599073,"data":"{\"config\": \"baseline\", \"length\": 8192, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 5.98, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":130.375180387,"data":"baseline len 16384 depth 0.1: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":143.147260597,"data":"{\"config\": \"baseline\", \"length\": 16384, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 12.77, \"gen_tokens\": 14, \"peak_mem_gb\": 7.37}\n"}
+,{"stream_name":"stdout","time":143.568038528,"data":"baseline len 16384 depth 0.3: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":156.438070312,"data":"{\"config\": \"baseline\", \"length\": 16384, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 12.87, \"gen_tokens\": 14, \"peak_mem_gb\": 7.37}\n"}
+,{"stream_name":"stdout","time":156.86858006,"data":"baseline len 16384 depth 0.5: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":169.880520816,"data":"{\"config\": \"baseline\", \"length\": 16384, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 13.01, \"gen_tokens\": 14, \"peak_mem_gb\": 7.37}\n"}
+,{"stream_name":"stdout","time":170.304196427,"data":"baseline len 16384 depth 0.7: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":183.540108615,"data":"{\"config\": \"baseline\", \"length\": 16384, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 13.24, \"gen_tokens\": 14, \"peak_mem_gb\": 7.37}\n"}
+,{"stream_name":"stdout","time":183.982390369,"data":"baseline len 16384 depth 0.9: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":197.337665286,"data":"{\"config\": \"baseline\", \"length\": 16384, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 13.35, \"gen_tokens\": 14, \"peak_mem_gb\": 7.37}\n"}
+,{"stream_name":"stdout","time":197.813393598,"data":"baseline len 32768 depth 0.1: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":232.558911081,"data":"{\"config\": \"baseline\", \"length\": 32768, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 34.74, \"gen_tokens\": 14, \"peak_mem_gb\": 8.76}\n"}
+,{"stream_name":"stdout","time":233.081768972,"data":"baseline len 32768 depth 0.3: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":268.230610501,"data":"{\"config\": \"baseline\", \"length\": 32768, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 35.15, \"gen_tokens\": 14, \"peak_mem_gb\": 8.76}\n"}
+,{"stream_name":"stdout","time":268.772686187,"data":"baseline len 32768 depth 0.5: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":303.276999461,"data":"{\"config\": \"baseline\", \"length\": 32768, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 34.5, \"gen_tokens\": 14, \"peak_mem_gb\": 8.76}\n"}
+,{"stream_name":"stdout","time":303.798359354,"data":"baseline len 32768 depth 0.7: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":338.625984168,"data":"{\"config\": \"baseline\", \"length\": 32768, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 34.83, \"gen_tokens\": 14, \"peak_mem_gb\": 8.76}\n"}
+,{"stream_name":"stdout","time":339.145325438,"data":"baseline len 32768 depth 0.9: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":373.991185972,"data":"{\"config\": \"baseline\", \"length\": 32768, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 34.85, \"gen_tokens\": 14, \"peak_mem_gb\": 8.76}\n"}
+,{"stream_name":"stdout","time":374.621912687,"data":"baseline len 65536 depth 0.1: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":479.495135586,"data":"{\"config\": \"baseline\", \"length\": 65536, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 104.87, \"gen_tokens\": 14, \"peak_mem_gb\": 11.53}\n"}
+,{"stream_name":"stdout","time":480.215458556,"data":"baseline len 65536 depth 0.3: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":585.143241649,"data":"{\"config\": \"baseline\", \"length\": 65536, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 104.93, \"gen_tokens\": 14, \"peak_mem_gb\": 11.53}\n"}
+,{"stream_name":"stdout","time":585.87146391,"data":"baseline len 65536 depth 0.5: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":691.056024773,"data":"{\"config\": \"baseline\", \"length\": 65536, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 105.18, \"gen_tokens\": 14, \"peak_mem_gb\": 11.53}\n"}
+,{"stream_name":"stdout","time":691.76704317,"data":"baseline len 65536 depth 0.7: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":796.693540009,"data":"{\"config\": \"baseline\", \"length\": 65536, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 104.93, \"gen_tokens\": 14, \"peak_mem_gb\": 11.53}\n"}
+,{"stream_name":"stdout","time":797.411883625,"data":"baseline len 65536 depth 0.9: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":902.53081189,"data":"{\"config\": \"baseline\", \"length\": 65536, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 105.12, \"gen_tokens\": 14, \"peak_mem_gb\": 11.53}\n"}
+,{"stream_name":"stdout","time":903.544046325,"data":"=== loading rnope_swa (fp16, sdpa) ===\n"}
+,{"stream_name":"stderr","time":907.835783403,"data":"\rLoading checkpoint shards:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rLoading checkpoint shards:  50%|█████     | 1/2 [00:03\u003c00:03,  3.44s/it]\rLoading checkpoint shards: 100%|██████████| 2/2 [00:04\u003c00:00,  1.89s/it]\rLoading checkpoint shards: 100%|██████████| 2/2 [00:04\u003c00:00,  2.13s/it]\n"}
+,{"stream_name":"stdout","time":908.041252001,"data":"rnope_swa: weights loaded as torch.float16\n"}
+,{"stream_name":"stdout","time":909.780486334,"data":"rnope_swa: 3,075,098,624 params | weights dtype torch.float16 | device cuda:0\n"}
+,{"stream_name":"stdout","time":909.780533297,"data":"rnope_swa: layer_types sliding=27 full=9 | use_sliding_window=True\n"}
+,{"stream_name":"stdout","time":909.781155745,"data":"[mem rnope_swa after load] free 8.69 GiB | allocated 5.74 GiB | peak 11.53 GiB\n"}
+,{"stream_name":"stdout","time":909.804036215,"data":"rnope_swa len 8192 depth 0.1: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":916.140567552,"data":"{\"config\": \"rnope_swa\", \"length\": 8192, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 6.34, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":916.521475366,"data":"rnope_swa len 8192 depth 0.3: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":922.868119576,"data":"{\"config\": \"rnope_swa\", \"length\": 8192, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 6.35, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":923.252540413,"data":"rnope_swa len 8192 depth 0.5: input_ids (1, 7575)\n"}
+,{"stream_name":"stdout","time":929.622819231,"data":"{\"config\": \"rnope_swa\", \"length\": 8192, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 6.37, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":930.004851626,"data":"rnope_swa len 8192 depth 0.7: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":936.396191044,"data":"{\"config\": \"rnope_swa\", \"length\": 8192, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 6.39, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":936.769728299,"data":"rnope_swa len 8192 depth 0.9: input_ids (1, 7576)\n"}
+,{"stream_name":"stdout","time":943.167728258,"data":"{\"config\": \"rnope_swa\", \"length\": 8192, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": true, \"generation\": \"The special magic number mentioned in the text is 8675309.\", \"gen_time_s\": 6.4, \"gen_tokens\": 14, \"peak_mem_gb\": 6.72}\n"}
+,{"stream_name":"stdout","time":943.568096013,"data":"rnope_swa len 16384 depth 0.1: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":953.659641717,"data":"{\"config\": \"rnope_swa\", \"length\": 16384, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 10.09, \"gen_tokens\": 0, \"peak_mem_gb\": 7.22}\n"}
+,{"stream_name":"stdout","time":954.096868762,"data":"rnope_swa len 16384 depth 0.3: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":964.203985536,"data":"{\"config\": \"rnope_swa\", \"length\": 16384, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 10.11, \"gen_tokens\": 0, \"peak_mem_gb\": 7.22}\n"}
+,{"stream_name":"stdout","time":964.635532528,"data":"rnope_swa len 16384 depth 0.5: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":974.741246974,"data":"{\"config\": \"rnope_swa\", \"length\": 16384, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 10.11, \"gen_tokens\": 0, \"peak_mem_gb\": 7.22}\n"}
+,{"stream_name":"stdout","time":975.17349714,"data":"rnope_swa len 16384 depth 0.7: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":986.541402422,"data":"{\"config\": \"rnope_swa\", \"length\": 16384, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": false, \"generation\": \").\\n -- -- 3665309\", \"gen_time_s\": 11.37, \"gen_tokens\": 7, \"peak_mem_gb\": 7.37}\n"}
+,{"stream_name":"stdout","time":986.982614954,"data":"rnope_swa len 16384 depth 0.9: input_ids (1, 15137)\n"}
+,{"stream_name":"stdout","time":996.956521012,"data":"{\"config\": \"rnope_swa\", \"length\": 16384, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 9.97, \"gen_tokens\": 0, \"peak_mem_gb\": 7.22}\n"}
+,{"stream_name":"stdout","time":997.420220337,"data":"rnope_swa len 32768 depth 0.1: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":1025.974715223,"data":"{\"config\": \"rnope_swa\", \"length\": 32768, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 28.55, \"gen_tokens\": 0, \"peak_mem_gb\": 8.39}\n"}
+,{"stream_name":"stdout","time":1026.483082682,"data":"rnope_swa len 32768 depth 0.3: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":1055.167956247,"data":"{\"config\": \"rnope_swa\", \"length\": 32768, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 28.68, \"gen_tokens\": 0, \"peak_mem_gb\": 8.39}\n"}
+,{"stream_name":"stdout","time":1055.663654682,"data":"rnope_swa len 32768 depth 0.5: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":1084.202585003,"data":"{\"config\": \"rnope_swa\", \"length\": 32768, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 28.54, \"gen_tokens\": 0, \"peak_mem_gb\": 8.39}\n"}
+,{"stream_name":"stdout","time":1084.683998383,"data":"rnope_swa len 32768 depth 0.7: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":1113.262660555,"data":"{\"config\": \"rnope_swa\", \"length\": 32768, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 28.58, \"gen_tokens\": 0, \"peak_mem_gb\": 8.39}\n"}
+,{"stream_name":"stdout","time":1113.786844922,"data":"rnope_swa len 32768 depth 0.9: input_ids (1, 30261)\n"}
+,{"stream_name":"stdout","time":1142.462990122,"data":"{\"config\": \"rnope_swa\", \"length\": 32768, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 28.68, \"gen_tokens\": 0, \"peak_mem_gb\": 8.39}\n"}
+,{"stream_name":"stdout","time":1143.087542407,"data":"rnope_swa len 65536 depth 0.1: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":1236.479107332,"data":"{\"config\": \"rnope_swa\", \"length\": 65536, \"depth\": 0.1, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 93.39, \"gen_tokens\": 0, \"peak_mem_gb\": 10.84}\n"}
+,{"stream_name":"stdout","time":1237.162997759,"data":"rnope_swa len 65536 depth 0.3: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":1330.719361696,"data":"{\"config\": \"rnope_swa\", \"length\": 65536, \"depth\": 0.3, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 93.56, \"gen_tokens\": 0, \"peak_mem_gb\": 10.84}\n"}
+,{"stream_name":"stdout","time":1331.415742139,"data":"rnope_swa len 65536 depth 0.5: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":1424.902779324,"data":"{\"config\": \"rnope_swa\", \"length\": 65536, \"depth\": 0.5, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 93.49, \"gen_tokens\": 0, \"peak_mem_gb\": 10.84}\n"}
+,{"stream_name":"stdout","time":1425.597822069,"data":"rnope_swa len 65536 depth 0.7: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":1519.132955389,"data":"{\"config\": \"rnope_swa\", \"length\": 65536, \"depth\": 0.7, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 93.53, \"gen_tokens\": 0, \"peak_mem_gb\": 10.84}\n"}
+,{"stream_name":"stdout","time":1519.8391684,"data":"rnope_swa len 65536 depth 0.9: input_ids (1, 60508)\n"}
+,{"stream_name":"stdout","time":1613.367708911,"data":"{\"config\": \"rnope_swa\", \"length\": 65536, \"depth\": 0.9, \"status\": \"ok\", \"exact_match\": false, \"generation\": \"\", \"gen_time_s\": 93.53, \"gen_tokens\": 0, \"peak_mem_gb\": 10.84}\n"}
+,{"stream_name":"stderr","time":1614.328592849,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":1614.328623426,"data":"  File \"/kaggle/src/script.py\", line 261, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":1614.3288124,"data":"    if r.get(\"length\") == 8192 and r.get(\"depth\") == 0.1 and r.get(\"status\") == \"ok\":\n"}
+,{"stream_name":"stderr","time":1614.328900579,"data":"       ^^^^^\n"}
+,{"stream_name":"stderr","time":1614.32898926,"data":"AttributeError: 'list' object has no attribute 'get'\n"}
+,{"stream_name":"stderr","time":1618.591333022,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1618.591359219,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1618.85086713,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1618.85089299,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1619.50968053,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1620.334660661,"data":"[NbConvertApp] Writing 335726 bytes to __results__.html\n"}
+]
