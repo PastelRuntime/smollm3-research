@@ -60,7 +60,8 @@ train-time windowing. Full pre-registration + data in the experiment folder.
 ```
 experiments/
   01-rnope-swa-inference/   Experiment 1: inference-only SWA (results in)
-  02-rnope-swa-lora/        Experiment 2: LoRA fine-tune with window (running)
+  02-rnope-swa-lora/        Experiment 2, treatment arm: LoRA fine-tune with window (running)
+  03-lora-control/          Experiment 2, control arm: identical training, stock config (running)
 ```
 
 Each experiment folder holds: the kernel script, `kernel-metadata.json` (Kaggle push
@@ -75,6 +76,10 @@ config), the pre-registration doc, and archived run data (`results.json`).
   8k tokens. Fix: manual chunked prefill (1024-token slices) + greedy decode loop.
 - Kaggle CLI 2.2.4 reads `enable_gpu` from kernel-metadata.json — not `is_gpu`, not
   `accelerator`.
+- The T4 image ships `torchao==0.10.0`; transformers 4.57.6 raises ImportError at
+  model load if any torchao < 0.16 is installed (even unused). Uninstall it at startup.
+- `datasets>=3.0` removed loading-script support; `deepmind/pg19` still uses a script.
+  Pin `datasets==2.21.0` + `trust_remote_code=True`.
 
 ## Rules
 
@@ -87,6 +92,15 @@ config), the pre-registration doc, and archived run data (`results.json`).
 
 ## Update log
 
+- **2026-08-21** — Experiment 1 confirmation run completed on both T4s (`device_map="auto"`):
+  40/40 runs, mask parity verified, results identical to the archived data. Experiment 1 is
+  officially reproduced.
+- **2026-08-21** — Experiment 2 upgraded to a two-arm design: treatment (LoRA with window)
+  and control (identical training, stock config) now run **concurrently**, same GPUs, same
+  data, same day. Amendment pre-registered in `03-lora-control/EXPERIMENT_2_CONTROL.md`
+  with the full interpretation matrix. Two environment bugs found and fixed en route
+  (datasets≥3 vs pg19 script; torchao version gate). Also logged: runtime config reports
+  `rope_theta=5e6` — a third value for the theta discrepancy file.
 - **2026-08-20** — Experiment 1 results in (40/40 runs): inference-only RNoPE-SWA
   destroys retrieval past the window (0/5 at 16k–64k) but saves 11–21% time and
   real memory. Baseline perfect everywhere. Pre-registered H2 falsified cleanly;

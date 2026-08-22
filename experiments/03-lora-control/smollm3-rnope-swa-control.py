@@ -173,15 +173,11 @@ output["meta"]["blocks"] = len(blocks)
 output["meta"]["books"] = n_books
 output["meta"]["train_tokens_m"] = round(len(blocks) * SEQ_LEN / 1e6, 2)
 
-swa_cfg = AutoConfig.from_pretrained(MODEL_ID)
-swa_cfg.use_sliding_window = True
-swa_cfg.sliding_window = WINDOW
-swa_cfg.layer_types = [
-    "sliding_attention" if v == 1 else "full_attention" for v in swa_cfg.no_rope_layers
-]
+cfg = AutoConfig.from_pretrained(MODEL_ID)
 output["meta"].update({
     "model": MODEL_ID,
-    "window": WINDOW,
+    "arm": "control: stock config, no window, identical training + eval",
+    "window": None,
     "seq_len": SEQ_LEN,
     "lora_r": LORA_R,
     "lora_alpha": LORA_ALPHA,
@@ -190,17 +186,15 @@ output["meta"].update({
     "devices": [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())],
     "torch_version": torch.__version__,
     "transformers_version": transformers.__version__,
-    "swa_layer_types": swa_cfg.layer_types,
-    "rope_theta": swa_cfg.rope_theta,
-    "num_rope_layers": sum(1 for v in swa_cfg.no_rope_layers if v == 1),
-    "num_nope_layers": sum(1 for v in swa_cfg.no_rope_layers if v == 0),
+    "layer_types": "stock (auto-derived, use_sliding_window default)",
+    "rope_theta": cfg.rope_theta,
 })
 save_output()
 
 print("=== loading model (fp16, sdpa, device_map=auto) ===", flush=True)
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_ID,
-    config=swa_cfg,
+    config=cfg,
     dtype=torch.float16,
     attn_implementation="sdpa",
     low_cpu_mem_usage=True,
@@ -357,7 +351,7 @@ for length in LENGTHS:
         break
     for depth in DEPTHS:
         reset_peak()
-        record = {"config": "rnope_swa_lora", "length": length, "depth": depth, "status": "unset"}
+        record = {"config": "stock_lora_control", "length": length, "depth": depth, "status": "unset"}
         try:
             input_ids = build_input(length - 80, depth)
             print(f"len {length} depth {depth}: input_ids {tuple(input_ids.shape)}", flush=True)
