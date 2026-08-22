@@ -32,7 +32,7 @@ if not cuda_ok():
 
 subprocess.check_call(
     [sys.executable, "-m", "pip", "install", "-q",
-     "transformers==4.57.6", "accelerate", "peft", "datasets"]
+     "transformers==4.57.6", "accelerate", "peft", "datasets==2.21.0"]
 )
 
 import gc
@@ -144,7 +144,7 @@ from datasets import load_dataset
 blocks = []
 buf = []
 n_books = 0
-stream = load_dataset("deepmind/pg19", split="train", streaming=True)
+stream = load_dataset("deepmind/pg19", split="train", streaming=True, trust_remote_code=True)
 for d in stream:
     text = None
     for key in ("book_text", "text", "book"):
