@@ -92,6 +92,16 @@ config), the pre-registration doc, and archived run data (`results.json`).
 
 ## Update log
 
+- **2026-08-24** — **Experiment 2 complete, both arms. Treatment: 5/5 NIAH at every
+  length (8k→64k) with the windowed config.** Control (stock config): 5/5 everywhere
+  as expected. Combined with Experiment 1 (unadapted weights under the same windowed
+  config: 0/5 past 8k), this is the causal cell: retrieval under RNoPE-SWA is
+  restored by LoRA CPT *with* the window active — ~6.5M tokens, a few GPU-hours.
+  P1 confirmed (stronger than predicted), P2 confirmed, P3 falsified: no speed win
+  post-adaptation (treatment 15–23% slower than control; peak memory identical).
+  Side finding: control's initial CPT loss of 0.665 nats suggests SmolLM3 largely
+  memorized pg19 in pretraining; both arms converged to ≈2.7 nats. Data archived in
+  `02-rnope-swa-lora/run1_data/` and `03-lora-control/run1_data/`.
 - **2026-08-21** — Experiment 1 confirmation run completed on both T4s (`device_map="auto"`):
   40/40 runs, mask parity verified, results identical to the archived data. Experiment 1 is
   officially reproduced.
