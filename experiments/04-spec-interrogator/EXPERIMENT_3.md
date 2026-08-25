@@ -18,6 +18,30 @@ frontier models. Nobody has tested whether a sub-5B can learn interrogation** �
 the one job cheap enough to run all day on an 8th-gen iGPU while the expensive
 agent sleeps.
 
+## Termination & completeness criteria (operationalizing the subjective)
+
+"Questions until the spec is full" is subjective as stated. All three layers below
+replace it with mechanical criteria, locked before training:
+
+1. **Ground-truth coverage (eval).** ClarifyCodeBench tasks carry planted,
+   known ambiguity points. Coverage = LLM-judge-matched ambiguities resolved /
+   total planted. Termination = all points covered OR round cap (N=8). Both
+   failure modes are scored: under-asking (low coverage) and over-asking
+   (turns per ambiguity). Judge subjectivity mitigated by: majority vote of 3
+   judge passes, exact-match check first for canonical question forms, and a
+   human-spot-checked calibration sample (~50 dialogues).
+2. **Schema-validated spec (output).** The terminal spec must pass a fixed JSON
+   schema — required sections: goal, scope in/out, data model, interfaces, error
+   handling, auth/security, edge cases, tests-as-acceptance, open questions.
+   Validation is deterministic code. Missing section → rejected → interrogation
+   continues. The same checklist that guides questioning defines completeness.
+3. **Downstream pass-rate (I3, the backstop).** The spec is sufficient iff the
+   same coding model with the interrogated spec beats the same model with the
+   raw prompt on tests-passed. No judgment involved.
+
+Reported metrics: coverage %, turns-to-coverage, schema-validity rate on first
+terminal attempt, and the I3 delta.
+
 ## Design
 
 - Model: HuggingFaceTB/SmolLM3-3B, LoRA (r=32, α=64, q/k/v/o), fp16, 2×T4 Kaggle
