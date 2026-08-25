@@ -92,6 +92,12 @@ config), the pre-registration doc, and archived run data (`results.json`).
 
 ## Update log
 
+- **2026-08-24** — Strategy sessions locked the north star (`NORTH_STAR.md`): the
+  one-machine studio — small interrogator brain + native multi-GPU MoE engine +
+  big open models. Experiment 3 pre-registered: the **Spec Interrogator**
+  (clarify-aware LoRA on SmolLM3, evaluated on ClarifyCodeBench +
+  downstream agent deltas, `04-spec-interrogator/EXPERIMENT_3.md`). Remaining
+  close-out item: the 2×2 cross-config eval kernel for Experiment 2.
 - **2026-08-24** — **Experiment 2 complete, both arms. Treatment: 5/5 NIAH at every
   length (8k→64k) with the windowed config.** Control (stock config): 5/5 everywhere
   as expected. Combined with Experiment 1 (unadapted weights under the same windowed
