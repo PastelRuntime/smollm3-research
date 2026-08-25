@@ -1,5 +1,6 @@
 # Model files
 *.safetensors
+!artifacts/adapters/**/adapter_model.safetensors
 *.bin
 *.pt
 *.onnx
