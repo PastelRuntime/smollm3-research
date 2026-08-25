@@ -91,6 +91,12 @@ terminal attempt, and the I3 delta.
 | I2 | Clarify-awareness does not destroy general ability: MMLU/GSM8K subset drop <5 points | ≥5 point drop |
 | I3 | The amplified spec improves downstream codegen: same coding model, raw prompt vs interrogated spec, on HumanEval-style tasks — pass rate improves by ≥8 points | ≤3 points improvement |
 | I4 | Runs conversational interrogation on CPU/integrated-class hardware at usable speed (<3s/turn at Q4) | unusable latency |
+| I5 | **Answer-sensitivity (anti-theater control):** specs generated from real user answers must beat specs generated from dummy "I don't know" answers on downstream pass-rate — the interrogator must actually use what it learns | real-answer specs ≤ dummy-answer specs (questions were costume; answers were decoration) |
+
+Additionally, training dialogues are retained only if their questions resolve
+the planted ambiguities (verified at data-generation time, where ground truth
+is controlled) — question theater is filtered from the training set by
+construction.
 
 Secondary: does SmolLM3's dual-mode (/think for planning questions, /no_think
 for rapid-fire) outperform single-mode interrogation? Recorded, not gating.
