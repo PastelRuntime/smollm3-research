@@ -18,6 +18,29 @@ frontier models. Nobody has tested whether a sub-5B can learn interrogation** �
 the one job cheap enough to run all day on an 8th-gen iGPU while the expensive
 agent sleeps.
 
+## Delta from prior work (why this isn't a replication)
+
+Prior art (ClarifyGPT FSE'24, ClarifyCoder 2025, ClarifyCodeBench 2026) runs one
+shape: a single model asks questions AND writes the code, and the questioner
+finds ambiguities via deep code understanding (ClarifyGPT diffs multiple
+candidate programs — frontier compute per question). All tested models are
+frontier/7B+-class. Settled findings we do NOT re-litigate: clarification
+improves codegen (ClarifyGPT); clarify-awareness is trainable (ClarifyCoder).
+
+Our deltas:
+1. **Role separation** — the interrogator never codes; it emits a schema-validated
+   spec consumed by a different, swappable downstream agent. The measured endpoint
+   is cross-model spec transfer, not same-model codegen.
+2. **Capability compression** — can the skill survive at 3B without code
+   understanding? No prior work below 7B; none at iGPU class.
+3. **Mechanical completeness** — schema-validated spec artifact vs. clarified
+   prompt text.
+
+Borrowed and cited: ClarifyCodeBench tasks + oracle protocol (interrogation
+leg only — codegen leg replaced by I3 backstop), ClarifyCoder's data recipe.
+The null hypothesis of this experiment is "it's just extra steps" — I3's ≤3-point
+falsification threshold exists precisely to detect that outcome.
+
 ## Termination & completeness criteria (operationalizing the subjective)
 
 "Questions until the spec is full" is subjective as stated. All three layers below
