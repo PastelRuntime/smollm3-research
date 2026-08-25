@@ -4,6 +4,24 @@
 > This document is the complete blueprint so that when the gates open, execution
 > starts immediately with zero re-planning.
 
+> **2026-08-24 LANDSCAPE UPDATE — FreeToken.** UC Berkeley/MIT released FreeToken
+> (arXiv:2608.16157, Apache 2.0): bandwidth-adaptive CPU–GPU co-execution, global
+> LRU expert caching, semantic caching — GLM-5.2 753B @ 14.9 tok/s on one RTX PRO
+> 6000, DeepSeek-V4-Flash 284B @ 22 tok/s on 32GB, 2–4× over Ollama. **Impact:**
+> the *text*-MoE local-serving half of this blueprint is now occupied — do not
+> build it. Surviving differentiators, folded into the ladder below:
+> (a) **diffusion/media MoE serving** — FreeToken is autoregressive-text only;
+> timestep-MoE diffusion (Wan 2.2) has no KV cache, iterative denoising, CFG
+> branches — different physics, unmeasured routing locality (R3 is now the seed
+> of a "FreeToken-for-diffusion");
+> (b) **fleet/multi-box mode** — FreeToken is explicitly single-machine;
+> heterogeneous multi-rig orchestration stays open (R4.5);
+> (c) **old-silicon support** — all FreeToken receipts are RTX-class; whether it
+> runs sm_75/sm_70 at all is unpublished (new R0.5);
+> (d) **speculative drafting on top** — drafter × expert-offload scheduling
+> interaction is unstudied (see drafter track).
+> FreeToken paper + code = mandatory gate-2 study material.
+
 ## Activation gates (all three required)
 
 1. **Unlimited local compute** — own hardware, no quota clocks.
@@ -53,6 +71,10 @@ One-time validation rentals: 4-8xA100 cloud @ ~$12/hr, 2-3 hrs (~$40).
 Single-GPU Wan-1.3B / LTX-2B / Wan-2.2-5B: fps, VRAM curve vs resolution/frames,
 deterministic output fingerprints (seeded). Establishes every later speedup's denominator.
 
+### R0.5 — FreeToken on old silicon (dev rig, free)
+Does FreeToken run/compile on sm_75 (T4) and sm_70 (V100)? Benchmark vs its
+RTX receipts. Either answer is a public contribution nobody has made.
+
 ### R1 — CFG split (dev rig, free)
 Conditional branch on GPU0, unconditional branch on GPU1. Zero inter-GPU comm.
 - Pre-reg stub: >=1.7x wall-clock at equal quality (LPIPS <= 0.01 vs single-GPU output).
@@ -82,6 +104,11 @@ ported and measured on PCIe-class links where nobody has benchmarked them.
 Consumer/decommissioned-hardware benchmark: strategies x models x link types x
 precisions. Published, reproducible, versioned. This is the contribution the
 field literally does not have.
+
+### R4.5 — Fleet mode (post-gate-1)
+FreeToken is single-machine by design. Heterogeneous multi-rig orchestration
+(mixed V100/A100/consumer cards as one logical platform) remains unowned.
+Build on FreeToken's runtime rather than beside it where possible.
 
 ### R6 — videng v1
 Thin pip-installable engine: `python -m videng "prompt" --gpus all`.
