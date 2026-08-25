@@ -92,6 +92,13 @@ config), the pre-registration doc, and archived run data (`results.json`).
 
 ## Update log
 
+- **2026-08-24** — **Experiment 2 CLOSED. The 2×2 matrix is complete (40/40 runs)
+  and the causal claim is airtight:** retrieval past the window recovers ONLY
+  when training happened with the window active AND eval uses it. Control
+  weights under the windowed config collapse to 0/5 at 16k+ — identical to
+  unadapted weights — so generic LoRA explains nothing. Treatment weights keep
+  full stock performance, so there's no trade-off. Full matrix in
+  `05-swa-2x2-closeout/`. Both adapters archived in-repo (`artifacts/adapters/`).
 - **2026-08-24** — Strategy sessions locked the north star (`NORTH_STAR.md`): the
   one-machine studio — small interrogator brain + native multi-GPU MoE engine +
   big open models. Experiment 3 pre-registered: the **Spec Interrogator**
