@@ -1,0 +1,17 @@
+{
+  "id": "haylee00/smollm3-rnope-swa-2x2",
+  "title": "SmolLM3 RNoPE-SWA 2x2",
+  "code_file": "smollm3-rnope-swa-2x2.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [],
+  "kernel_sources": [
+    "haylee00/smollm3-rnope-swa-phase-b",
+    "haylee00/smollm3-rnope-swa-control"
+  ],
+  "competition_sources": []
+}
