@@ -25,8 +25,6 @@ What's next — and this is where it gets fun. Three years of vibe coding taught
 
 So the next experiment: teach the 3B to INTERROGATE. You give it "build me a login page," it asks what a senior engineer would ask — token expiry? rate limits? what test proves done? — and emits the full engineering spec. The cheap model writes the questions; the expensive model answers them. It's the kind of job a laptop iGPU can do all day while the big GPU sleeps.
 
-After that: bigger swing. The new open image/video models are 80B+ (HunyuanImage-3.0, MAGI-2), all memory-heavy MoE. They fit in landfill-priced used GPU fleets — if someone builds the native multi-GPU engine. Nobody has. Receipts-first, same as always.
-
 Everything's public: pre-registrations, kernels, raw results JSONs, warts and all. github.com/PastelRuntime/smollm3-research
 
 DMs open if you're into NoPE, small models, or scrapheap GPU farms. 🤝
