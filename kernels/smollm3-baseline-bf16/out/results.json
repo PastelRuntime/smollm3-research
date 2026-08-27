@@ -1,0 +1,78 @@
+{
+  "kernel": "smollm3-baseline-bf16",
+  "model": "HuggingFaceTB/SmolLM3-3B",
+  "precision": "bf16",
+  "device": "Tesla T4",
+  "params": 3075098624,
+  "params_human": "3,075,098,624",
+  "weights_mem_gb": 6.26,
+  "s1_sanity": {
+    "tokens_per_s": 16.6,
+    "text": "The sky appears blue due to a phenomenon called Rayleigh scattering, which occurs when sunlight interacts with the Earth's atmosphere. Shorter wavelengths of light, such as blue and violet, are scattered more efficiently by the molecules and small particles in the air. Since our eyes are more sensit"
+  },
+  "t1_format": {
+    "n": 3,
+    "parsed_ok": 3,
+    "correct_name": 3,
+    "cases": [
+      {
+        "parsed": true,
+        "name": "get_weather",
+        "args": {
+          "city": "Copenhagen"
+        },
+        "prompt": "What's the weather in Copenhagen right now?",
+        "expected": "get_weather",
+        "correct_name": true,
+        "tokens_per_s": 12.2,
+        "raw_head": "<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Copenhagen\"}}\n</tool_call>"
+      },
+      {
+        "parsed": true,
+        "name": "set_reminder",
+        "args": {
+          "text": "Check the oven",
+          "minutes_from_now": 20
+        },
+        "prompt": "Remind me in 20 minutes to check the oven.",
+        "expected": "set_reminder",
+        "correct_name": true,
+        "tokens_per_s": 14.0,
+        "raw_head": "<tool_call>\n{\"name\": \"set_reminder\", \"arguments\": {\"text\": \"Check the oven\", \"minutes_from_now\": 20}}\n</tool_call>"
+      },
+      {
+        "parsed": true,
+        "name": "search_notes",
+        "args": {
+          "query": "Lisbon trip"
+        },
+        "prompt": "Find my notes about the Lisbon trip.",
+        "expected": "search_notes",
+        "correct_name": true,
+        "tokens_per_s": 12.5,
+        "raw_head": "<tool_call>\n{\"name\": \"search_notes\", \"arguments\": {\"query\": \"Lisbon trip\"}}\n</tool_call>"
+      }
+    ]
+  },
+  "t2_no_tool": {
+    "emitted_tool_call": false,
+    "text": "Sure, here's a haiku about rain:\n\nRain falls gently,\nDrops on the wet pavement,\nWhispers through the trees."
+  },
+  "t3_args": {
+    "args_valid": true,
+    "detail": {
+      "parsed": true,
+      "name": "get_weather",
+      "args": {
+        "city": "Copenhagen"
+      }
+    }
+  },
+  "t4_flow": {
+    "first_call_ok": true,
+    "final_mentions_weather": true,
+    "final_head": "The current weather in Copenhagen is light rain with a temperature of 12\u00b0C."
+  },
+  "peak_mem_gb": 6.35,
+  "wall_time_s": 59.7
+}

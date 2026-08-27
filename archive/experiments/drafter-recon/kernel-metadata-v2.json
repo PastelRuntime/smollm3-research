@@ -1,0 +1,13 @@
+{
+  "id": "haylee00/qwen38-drafter-recon-v2",
+  "title": "Qwen3.8 Drafter Recon V2",
+  "code_file": "qwen38-drafter-recon-v2.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": []
+}

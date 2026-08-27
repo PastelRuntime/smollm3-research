@@ -21,3 +21,6 @@ __pycache__/
 # Kaggle/kernel artifacts
 /kaggle/
 *.log
+
+# Reference repos
+/smollm/
