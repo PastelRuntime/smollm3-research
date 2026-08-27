@@ -1,0 +1,14 @@
+{
+ "phase": "A",
+ "target": "unsloth/Qwen3.5-35B-A3B",
+ "checks": {
+  "target_tokenizer_len": 248077,
+  "Qwen__Qwen3.5-2B_vocab_match": true,
+  "Qwen__Qwen3.5-0.8B_vocab_match": true
+ },
+ "env": {
+  "gpu": "Tesla P100-PCIE-16GB, 16384 MiB, 0 MiB",
+  "host_ram_gb": 33.7,
+  "hf_token": "secret unavailable: Connection error trying to communicate with service."
+ }
+}

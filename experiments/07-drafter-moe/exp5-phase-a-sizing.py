@@ -28,6 +28,8 @@ def sh(cmd):
 
 # --- env scrubbing per pre-reg pins -------------------------------------
 sh("pip uninstall -y torchao 2>/dev/null")
+# v3: Kaggle image's transformers predates qwen3_5_moe arch (v2 failure mode)
+sh("pip install -q -U transformers accelerate bitsandbytes")
 try:
     import psutil  # noqa
 except ImportError:
