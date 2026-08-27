@@ -4,6 +4,27 @@ A running pointer to where we are. At the end of every chat, the last 5–10 lin
 
 ---
 
+## Session 5 — Exp 5 Phase A launched, three-strike env battle, parked (Aug 26, 2026)
+
+**What happened:** exp5-phase-a-sizing pushed 3×:
+- v1 failed: Qwen/Qwen3.5-35B-A3B is GATED → swapped target to unsloth mirror (ungated,
+  byte-identical, 71.9 GB / 14 shards verified via HF API). HF_TOKEN kaggle-secret support
+  added to script but no longer required.
+- v2 failed @40s: Kaggle image transformers predates `qwen3_5_moe` arch →
+  boot-time `pip install -U transformers accelerate bitsandbytes`.
+- v3 RUNNING but user reports it landed on P100.
+**ROOT CAUSE (fix next time):** kernel-metadata.json was written WITHOUT
+`"machine_shape": "NvidiaTeslaT4"` (a.k.a. machineShape) — standing rule from Session 3
+was violated by omission. Next push must include the pin AND verify P100-trap notes in README.
+v2 failure log archived at experiments/07-drafter-moe/run_v2_output/. All pushed (3a7d3cc).
+
+**Where we are:** Haylee wants this parked. Exp 5 Phase A awaits a re-push WITH the GPU pin;
+then the pre-reg decision tree applies unchanged (green → design Phase B 2x2 BEFORE looking
+at drafting numbers).
+
+---
+
+
 ## Session 4 — Repo restructure + public stack goes live (Aug 26, 2026)
 
 **Role:** research ops + presence engineering (no experiments this session).
