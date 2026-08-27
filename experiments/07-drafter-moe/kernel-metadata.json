@@ -1,6 +1,6 @@
 {
   "id": "haylee00/exp5-phase-a-sizing",
-  "title": "Exp5 Phase A: Qwen3.5-35B-A3B sizing probe",
+  "title": "Exp5 phase a sizing",
   "code_file": "exp5-phase-a-sizing.py",
   "language": "python",
   "kernel_type": "script",
@@ -10,5 +10,5 @@
   "dataset_sources": [],
   "competition_sources": [],
   "kernel_sources": [],
-  "model_sources": ["Qwen/Qwen3.5-35B-A3B", "Qwen/Qwen3.5-2B", "Qwen/Qwen3.5-0.8B"]
+  "model_sources": []
 }
