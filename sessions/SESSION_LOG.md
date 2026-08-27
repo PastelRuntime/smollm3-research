@@ -4,6 +4,38 @@ A running pointer to where we are. At the end of every chat, the last 5–10 lin
 
 ---
 
+## Session 4 — Repo restructure + public stack goes live (Aug 26, 2026)
+
+**Role:** research ops + presence engineering (no experiments this session).
+
+**Repo restructure (commit e888052):**
+- 12 experiment dirs → 6 canonical numbered dirs; snake_case duplicates verified via diff
+  (control/phaseb byte-identical to 03/02) then deleted or archived; drafter-recon v2 kernel merged into 06
+- New top-level: `archive/` (w/ README), `sessions/`, `learning/`; `smollm/` reference clone ignored;
+  `__pycache__` purged
+
+**Presence infrastructure:**
+- `PRESENCE.md` created: positioning ("pre-registered, free compute, failures public"), 3 content lanes
+  (experiment receipts / process grit / reply-guy), landing-page gate, ADHD-safe cadence rules
+- GitHub `PastelRuntime/smollm3-research` fully synced (was stuck at init commit). Root cause of push hang:
+  two 61 MB LoRA blobs in git history → fixed via `git lfs migrate import` + lease force-push.
+  **Standing rule added: files >10 MB go to HF, not git history.**
+- HF repo `PastelRuntime/SmolLM3-RNoPE-SWA-Adapters` created: treatment/ + control/ adapters + model card
+  (result summary, PeftModel usage snippet, GitHub link). Existing KB-Diffusion-ModelB left untouched.
+- README rewritten as 30-second tour: headline result table first, experiment index (status per exp),
+  weights link; env-note bullets merged (incl. SDPA T4 OOM fix, Kaggle CLI enable_gpu quirk)
+
+**State at end of session:** everything pushed and verified live (GitHub tip f6097b7). The ONLY open item:
+post the Experiment 2 layman thread (drafts ready in sessions/); add closing line pointing to both
+GitHub + HF links. Next research work after that: Exp 3 Spec Interrogator launch (04-spec-interrogator).
+
+**Session learnings for future sessions:** local terminal output capture is flaky — write command output
+to a project-dir file and Read it instead of trusting inline capture; long uploads/pushes must run nohup-detached.
+
+---
+
+## Session 1 — The transformer block, end-to-end
+
 ## Session 1 — The transformer block, end-to-end
 
 **Date:** (first session)
