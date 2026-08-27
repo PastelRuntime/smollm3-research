@@ -1,0 +1,5 @@
+haylee00/qwen3-8-drafter-recon-v2 has status "KernelWorkerStatus.COMPLETE"
+haylee00/model-b-word-diffusion has status "KernelWorkerStatus.COMPLETE"
+ref                              title                   author         lastRunTime                 totalVotes  
+-------------------------------  ----------------------  -------------  --------------------------  ----------  
+haylee00/smollm3-rnope-swa-niah  SmolLM3 RNoPE-SWA NIAH  PastelRuntime  2026-08-21 06:40:26.433000           4  

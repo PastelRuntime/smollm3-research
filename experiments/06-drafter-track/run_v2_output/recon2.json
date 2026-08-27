@@ -1,0 +1,188 @@
+{
+  "candidates": {
+    "unsloth/Qwen3.5-0.8B-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "Qwen/Qwen3.5-0.8B": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "Qwen/Qwen3.5-2B": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "Qwen/Qwen3.5-2B-Base": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "HauhauCS/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "unsloth/Qwen3.5-2B-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "Qwen/Qwen3.5-0.8B-Base": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "nvidia/Qwen3.5-122B-A10B-NVFP4": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "Qwen/Qwen3.5-122B-A10B": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "Jackrong/Qwen3.5-2B-Claude-4.6-Opus-Reasoning-Distilled-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "HauhauCS/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "mudler/Qwen3.5-122B-A10B-APEX-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "unsloth/Qwen3.5-2B-MTP-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "nerkyor/Qwen3.5-122B-A10B-44GB-GPT5.6Sol-SFT-LynnStyle-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "Qwen/Qwen3.5-4B": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "unsloth/Qwen3.5-4B-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "Jackrong/DeepSeek-V4-Pro-Qwen3.5-4B-MTP-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "HauhauCS/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "jica98/qwen3.5-4B-super-coder": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "insraq/Qwen3.5-4B-EmperoAI-Qwen3.8-Distill-Heretic-Abliterated-MTP-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "mlx-community/Qwen3.5-9B-OptiQ-4bit": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "mondk/GGUF.Claude-Qwen3.5-4B-Reasoning": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "mondk/Safetensors.Claude-Qwen3.5-4B-Reasoning": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "Qwen/Qwen3.5-35B-A3B-Base": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "Qwen/Qwen3.5-9B-Base": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "Jackrong/Qwen3.5-4B-Claude-4.6-Opus-Reasoning-Distilled-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "Jackrong/Qwen3.5-4B-Claude-4.6-Opus-Reasoning-Distilled-v2-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "unsloth/Qwen3.5-4B-MTP-GGUF": {
+      "err": "w tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+    },
+    "Jackrong/DeepSeek-V4-Pro-Qwen3.5-4B": {
+      "tokenizer_len": 248077,
+      "vocab_match": true
+    },
+    "zz1358m/Qwen3.5-4B-MATH-ReAct-Agentic-ESOpt": {
+      "err": "                 ^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: transformers.tokenization_utils_tokenizers.TokenizersBackend._patch_mistral_regex() got multiple values for keyword argument 'fix_mistral_regex'\n"
+    },
+    "mradermacher/Qwen3.5-4B-EmperoAI-Qwen3.8-Distill-Heretic-Abliterated-i1-GGUF": {
+      "tokenizer_len": 5,
+      "vocab_match": false
+    }
+  },
+  "matches": [
+    "Qwen/Qwen3.5-0.8B",
+    "Qwen/Qwen3.5-2B",
+    "Qwen/Qwen3.5-2B-Base",
+    "Qwen/Qwen3.5-0.8B-Base",
+    "nvidia/Qwen3.5-122B-A10B-NVFP4",
+    "Qwen/Qwen3.5-122B-A10B",
+    "Qwen/Qwen3.5-4B",
+    "jica98/qwen3.5-4B-super-coder",
+    "mlx-community/Qwen3.5-9B-OptiQ-4bit",
+    "mondk/Safetensors.Claude-Qwen3.5-4B-Reasoning",
+    "Qwen/Qwen3.5-35B-A3B-Base",
+    "Qwen/Qwen3.5-9B-Base",
+    "Jackrong/DeepSeek-V4-Pro-Qwen3.5-4B"
+  ],
+  "qwen35_ids": [
+    "DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF",
+    "HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive",
+    "Qwen/Qwen3.5-9B",
+    "Qwen/Qwen3.5-4B",
+    "unsloth/Qwen3.5-9B-GGUF",
+    "Local-Novel-LLM-project/Qwen3.5-Hasutsubomi-9B",
+    "unsloth/Qwen3.5-4B-GGUF",
+    "unsloth/Qwen3.5-0.8B-GGUF",
+    "Qwen/Qwen3.5-0.8B",
+    "Jackrong/DeepSeek-V4-Pro-Qwen3.5-4B-MTP-GGUF",
+    "Qwen/Qwen3.5-2B",
+    "Qwen/Qwen3.5-2B-Base",
+    "HauhauCS/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive",
+    "unsloth/Qwen3.5-9B-MTP-GGUF",
+    "jica98/qwen3.5-4B-super-coder",
+    "Jackrong/DeepSeek-V4-Pro-Qwen3.5-9B-MTP-GGUF",
+    "insraq/Qwen3.5-4B-EmperoAI-Qwen3.8-Distill-Heretic-Abliterated-MTP-GGUF",
+    "Qwen/Qwen3.5-27B",
+    "DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-THINKING-HERETIC-UNCENSORED",
+    "mlx-community/Qwen3.5-9B-OptiQ-4bit",
+    "HauhauCS/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive",
+    "mondk/GGUF.Claude-Qwen3.5-4B-Reasoning",
+    "mondk/Safetensors.Claude-Qwen3.5-4B-Reasoning",
+    "Qwen/Qwen3.5-35B-A3B",
+    "Qwen/Qwen3.5-35B-A3B-Base",
+    "Qwen/Qwen3.5-9B-Base",
+    "huihui-ai/Huihui-Qwen3.5-27B-abliterated",
+    "unsloth/Qwen3.5-2B-GGUF",
+    "Qwen/Qwen3.5-0.8B-Base",
+    "lmstudio-community/Qwen3.5-9B-GGUF",
+    "Jackrong/Qwen3.5-4B-Claude-4.6-Opus-Reasoning-Distilled-GGUF",
+    "huihui-ai/Huihui-Qwen3.5-9B-abliterated",
+    "HauhauCS/Qwen3.5-35B-Optimized-HauhauCS-40",
+    "Jackrong/Qwen3.5-9B-DeepSeek-V4-Flash-GGUF",
+    "nvidia/Qwen3.5-122B-A10B-NVFP4",
+    "DavidAU/Qwen3.5-9B-The-Defiant-Fable-DARK-ROAST-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP",
+    "DavidAU/Qwen3.5-9B-Cold-Fusion-GAIN-v1.0-Uncensored-Heretic-NEO-MAX-Imatrix-GGUF",
+    "Qwen/Qwen3.5-397B-A17B",
+    "Qwen/Qwen3.5-122B-A10B",
+    "huihui-ai/Huihui-Qwen3.5-35B-A3B-abliterated",
+    "Jackrong/Qwen3.5-2B-Claude-4.6-Opus-Reasoning-Distilled-GGUF",
+    "QuantTrio/Qwen3.5-9B-AWQ",
+    "DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-INSTRUCT-HERETIC-UNCENSORED",
+    "mradermacher/Qwen3.5-9B-Claude-4.6-HighIQ-INSTRUCT-HERETIC-UNCENSORED-GGUF",
+    "HauhauCS/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive",
+    "mconcat/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled-NVFP4",
+    "Jackrong/Qwen3.5-4B-Claude-4.6-Opus-Reasoning-Distilled-v2-GGUF",
+    "Jackrong/Qwen3.5-9B-Claude-4.6-Opus-Reasoning-Distilled-v2-GGUF",
+    "mudler/Qwen3.5-122B-A10B-APEX-GGUF",
+    "RedHatAI/Qwen3.5-9B-quantized.w4a16",
+    "unsloth/Qwen3.5-2B-MTP-GGUF",
+    "unsloth/Qwen3.5-4B-MTP-GGUF",
+    "w-ahmad/Qwen3.5-9B-GGUF-MoQ-MTP",
+    "nightmedia/Qwen3.5-9B-TNG-PKD-Qwopus-Coder-Qwythos-qx86-hi-mlx",
+    "Jackrong/DeepSeek-V4-Pro-Qwen3.5-4B",
+    "nerkyor/Qwen3.5-122B-A10B-44GB-GPT5.6Sol-SFT-LynnStyle-GGUF",
+    "mradermacher/Qwen3.5-9B-The-Defiant-Fable-DARK-ROAST-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-i1-GGUF",
+    "zz1358m/Qwen3.5-4B-MATH-ReAct-Agentic-ESOpt",
+    "mradermacher/Qwen3.5-4B-EmperoAI-Qwen3.8-Distill-Heretic-Abliterated-i1-GGUF",
+    "DarkKitsune/Qwen3.5-9B-Qworus-V2"
+  ]
+}
