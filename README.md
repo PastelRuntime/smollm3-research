@@ -1,85 +1,80 @@
 # SmolLM3 Research
 
-Independent experiments on [SmolLM3-3B](https://huggingface.co/HuggingFaceTB/SmolLM3-3B) —
+Independent, pre-registered experiments on [SmolLM3-3B](https://huggingface.co/HuggingFaceTB/SmolLM3-3B) —
 Hugging Face's 3B hybrid long-context model. Everything runs remotely (Kaggle/HF),
-nothing local. Every experiment is pre-registered before launch.
+nothing local. Every hypothesis is written down **before** the run; negative
+results get posted too.
+
+## The headline result
+
+**Sliding-window attention doesn't destroy long context — if the model adapts under it.**
+
+SmolLM3 has 27 RoPE layers + 9 NoPE layers. Windowing the RoPE layers at 8k
+inference-time-only: needle-in-haystack collapses to **0/5 past 8k**, but runs
+11–21% faster. Fine-tuning *with* the window active (LoRA r=32, ~6.5M tokens,
+a few free GPU-hours): retrieval returns to **5/5 at 8k, 16k, 32k, and 64k**
+— full retrieval at 8× the window. Concurrent control arm proves it's the
+window-adaptation, not generic LoRA.
+
+| NIAH length | stock + window | LoRA trained under window |
+|---|---|---|
+| 8k | 5/5 | 5/5 |
+| 16k | 0/5 | **5/5** |
+| 32k | 0/5 | **5/5** |
+| 64k | 0/5 | **5/5** |
+
+📦 **Weights:** [PastelRuntime/SmolLM3-RNoPE-SWA-Adapters](https://huggingface.co/PastelRuntime/SmolLM3-RNoPE-SWA-Adapters)
+(treatment + control) · 📜 Full pre-registrations + raw JSONs in `experiments/`
+
+## Experiment index
+
+| # | Question | Status | Result |
+|---|---|---|---|
+| 1 (`01-rnope-swa-inference`) | Does inference-time RNoPE-SWA keep retrieval? | ✅ done ×2 | H falsified — 0/5 past window, speed win real |
+| 2 (`02-rnope-swa-lora` + `03-lora-control`) | Does training *under* the window restore it? | ✅ closed, 2×2 complete | Yes — 5/5 to 64k; no free lunch on speed |
+| 3 (`04-spec-interrogator`) | Can a 3B be LoRA'd into a spec-writing interrogator? | 📋 pre-registered | — |
+| 4 (`06-drafter-track`) | Qwen3.8-27B speculation-drafting recon for engine work | 📋 pre-registered | — |
+| 5–6 | videng Phase 0: CFG split / expert-locality atlas (see `ENGINE.md`) | designed | — |
 
 ## The model
 
-SmolLM3-3B is a 36-layer hybrid: **27 RoPE layers + 9 NoPE layers** (no positional
-embedding, every 4th layer), 64k native context (128k with YaRN), dual `/think` and
-`/no_think` modes, tied embeddings, GQA. The NoPE-hybrid design comes from the RNoPE
-paper (arXiv:2501.18795), which claims the combo gives long-context retrieval *and*
-memory savings — but nobody had tested the recipe on this actual model. That's the gap
-this project attacks.
-
-## Findings so far
+SmolLM3-3B is a 36-layer hybrid: **27 RoPE + 9 NoPE layers** (no positional
+embedding every 4th layer), 64k native context (128k YaRN), dual `/think`
+modes, GQA. The RNoPE recipe (arXiv:2501.18795) claims long-context retrieval
+*and* memory savings — nobody had tested it on this actual model. That was the gap.
 
 ### Finding 1 — the `layer_types` inversion in transformers
 
-transformers' SmolLM3 config auto-derives `layer_types` when unset: it assigns
-`sliding_attention` to the **NoPE** layers (`configuration_smollm3.py`, the
-`not has_rope` branch) — the **opposite** of the RNoPE recipe, which windows the
-RoPE layers and keeps NoPE full-attention. Anyone who "just enables SWA" gets the
-wrong layers windowed and a misleading result. All experiments here pass
-`layer_types` explicitly.
-
-### Finding 2 — RNoPE-SWA at inference: fast, but retrieval dies past the window
-
-**Experiment 1** (`experiments/01-rnope-swa-inference/`): windowed the 27 RoPE layers
-at 8k (NoPE kept full), then ran needle-in-haystack at 8k–64k × 5 depths vs baseline,
-identical everything else. 40/40 runs completed.
-
-| length | baseline acc | windowed acc | windowed speed | windowed mem |
-|--------|-------------|--------------|----------------|--------------|
-| 8k | 5/5 | 5/5 (parity ✓) | −4% | same |
-| 16k | 5/5 | **0/5** | **−21%** | −0.15 GB |
-| 32k | 5/5 | **0/5** | **−18%** | −0.37 GB |
-| 64k | 5/5 | **0/5** | **−11%** | −0.70 GB |
-
-Interpretation: you cannot bolt the paper's recipe onto an already-trained model.
-Retrieval lives in the NoPE layers, but the RoPE layers' full-attention contribution
-beyond 8k matters at inference — kill it and long-context recall collapses. The
-11–21% speedup and memory savings are real, which is exactly the incentive to test
-train-time windowing. Full pre-registration + data in the experiment folder.
-
-## Running now
-
-- **Phase A confirmation** — re-run of Experiment 1 with the model split across both
-  T4s (`device_map="auto"`), for a clean green run of the archived results.
-- **Experiment 2 / Phase B** (`experiments/02-rnope-swa-lora/`): LoRA fine-tune
-  **with the window active during training** (r=32, ~6.5M tokens of pg19 at 16k
-  seq len — 2× the window, forcing far-context through NoPE layers), then the exact
-  Experiment 1 harness re-runs. Pre-registered: P1 = retrieval recovers to ≥4/5 at
-  16k & 32k; P2 = 8k stays 5/5; P3 = speed win persists. If P1 holds, a control
-  kernel (same training, no window) isolates whether the window itself caused
-  recovery. Both outcomes are publishable.
+transformers' SmolLM3 config auto-derives `layer_types` when unset and assigns
+`sliding_attention` to the **NoPE** layers — the **opposite** of the RNoPE
+recipe. Anyone who "just enables SWA" windows the wrong layers. All experiments
+here pass `layer_types` explicitly. If you replicated RNoPE-SWA and got garbage:
+check this first.
 
 ## Repo layout
 
 ```
-experiments/
-  01-rnope-swa-inference/   Experiment 1: inference-only SWA (results in)
-  02-rnope-swa-lora/        Experiment 2, treatment arm: LoRA fine-tune with window (running)
-  03-lora-control/          Experiment 2, control arm: identical training, stock config (running)
+experiments/   numbered = canonical; each holds pre-registration, kernel script, run data
+artifacts/     treatment/control LoRA adapters (+ mirrored on HF)
+archive/       superseded working copies, quarantined with explanation
+ENGINE.md      parked blueprint: native multi-GPU MoE diffusion serving ("videng")
+NORTH_STAR.md  where this is going; PRESENCE.md governs posting discipline
 ```
-
-Each experiment folder holds: the kernel script, `kernel-metadata.json` (Kaggle push
-config), the pre-registration doc, and archived run data (`results.json`).
 
 ## Environment notes (so nobody repeats this)
 
-- Kaggle GPU pushes default to **P100** unless `machine_shape: NvidiaTeslaT4` is set
-  in `kernel-metadata.json`. The image's torch (cu128, sm_70+) cannot run Pascal at all.
-- On T4 (sm_75), SDPA has no flash kernel; `model.generate()` on long prompts falls
-  back to the math backend and materializes the full attention score matrix → OOM at
-  8k tokens. Fix: manual chunked prefill (1024-token slices) + greedy decode loop.
-- Kaggle CLI 2.2.4 reads `enable_gpu` from kernel-metadata.json — not `is_gpu`, not
-  `accelerator`.
-- The T4 image ships `torchao==0.10.0`; transformers 4.57.6 raises ImportError at
-  model load if any torchao < 0.16 is installed (even unused). Uninstall it at startup.
-- `datasets>=3.0` removed loading-script support; `deepmind/pg19` still uses a script.
-  Pin `datasets==2.21.0` + `trust_remote_code=True`.
+- Kaggle GPU pushes default to **P100** unless `"machine_shape": "NvidiaTeslaT4"`
+  is pinned — Pascal sm_60 kernels are missing from the default torch cu128 image.
+- transformers ≥4.57 raises ImportError at load if any `torchao < 0.16` is
+  installed (even unused). Uninstall it at startup.
+- T4 (sm_75) has no flash SDPA kernel; `model.generate()` on long prompts falls
+  back to the math backend and materializes the full attention matrix → OOM at
+  8k. Fix: manual chunked prefill (1024-token slices) + greedy decode loop.
+- Kaggle CLI 2.2.4 reads `enable_gpu` from kernel-metadata.json — not `is_gpu`,
+  not `accelerator`.
+- `datasets>=3.0` dropped loading-script support; pin `datasets==2.21.0` +
+  `trust_remote_code=True` for `deepmind/pg19`.
+- Any file >10 MB goes to HF, not git history.
 
 ## Rules
 
@@ -87,8 +82,6 @@ config), the pre-registration doc, and archived run data (`results.json`).
 - No replications of things done 50 times.
 - Pre-register hypotheses before launching; report what the data says.
 - One verified claim per post; public corrections when wrong.
-
----
 
 ## Update log
 
