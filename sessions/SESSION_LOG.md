@@ -4,6 +4,24 @@ A running pointer to where we are. At the end of every chat, the last 5–10 lin
 
 ---
 
+## Session 6 — Exp5 Phase A re-launched correctly (Aug 26–27, 2026)
+
+- ROOT CAUSE fixed: `"machine_shape": "NvidiaTeslaT4"` added to exp5 kernel-metadata.json
+  (v1-v3 had enable_gpu only → P100 default). Commit 1ecbabf.
+- v4 pushed (~2026-08-26 late) and status = RUNNING as of last check (~90 min in;
+  expected: 72 GB bf16 download from unsloth mirror + transformers/accelerate/bnb boot
+  installs + load-time NF4 quantization → 60–120 min is plausible).
+- NEXT ACTION when COMPLETE: `kaggle kernels output haylee00/exp5-phase-a-sizing -p
+  experiments/07-drafter-moe/run_a_output` then read results.json:
+  env.gpu must say Tesla T4 x2 (proves pin worked); checks.*vocab_match should be true;
+  vram_after_load decides drafter size per pre-reg; then design Phase B 2x2 BEFORE any
+  drafting numbers are seen.
+- If still RUNNING after ~2.5h: likely stuck — stop it from the Kaggle web UI to save
+  quota, then pull log and diagnose. If ERROR: same output command gets the log.
+
+---
+
+
 ## Session 5 — Exp 5 Phase A launched, three-strike env battle, parked (Aug 26, 2026)
 
 **What happened:** exp5-phase-a-sizing pushed 3×:
