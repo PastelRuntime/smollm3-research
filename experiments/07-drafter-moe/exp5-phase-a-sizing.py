@@ -10,7 +10,8 @@ import subprocess
 import time
 
 RESULTS_PATH = "/kaggle/working/results.json"
-TARGET = "Qwen/Qwen3.5-35B-A3B"
+# ungated byte-identical mirror of gated Qwen/Qwen3.5-35B-A3B (v2 swap, 2026-08-26)
+TARGET = "unsloth/Qwen3.5-35B-A3B"
 DRAFTERS = ["Qwen/Qwen3.5-2B", "Qwen/Qwen3.5-0.8B"]
 
 results = {"phase": "A", "target": TARGET, "checks": {}, "env": {}}
@@ -33,10 +34,18 @@ except ImportError:
     sh("pip install -q psutil")
 
 results["env"]["gpu"] = sh("nvidia-smi --query-gpu=name,memory.total,memory.used --format=csv,noheader").strip()
-results["env"]["host_ram_gb"] = round(psutil.virtual_memory().total / 1e9, 1) if False else None  # set below
 import psutil  # noqa: E402
 results["env"]["host_ram_gb"] = round(psutil.virtual_memory().total / 1e9, 1)
+
+# --- HF auth (gated model) ----------------------------------------------
+try:
+    from kaggle_secrets import UserSecretsClient
+    os.environ["HF_TOKEN"] = UserSecretsClient().get_secret("HF_TOKEN")
+    results["env"]["hf_token"] = "loaded from kaggle secret"
+except Exception as e:
+    results["env"]["hf_token"] = f"secret unavailable: {str(e)[:120]}"
 save()
+
 
 # --- tokenizer vocab-match check (drafter pairing validity) -------------
 from transformers import AutoTokenizer  # noqa: E402
